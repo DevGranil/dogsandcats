@@ -24,11 +24,7 @@ export class ListComponent implements OnInit {
     listType = input<ListType>()
     type = input<AnimalType>()
 
-    constructor(private route: Router){
-      effect(() => {
-        console.log(this.list())
-      })
-    }
+    constructor(private route: Router){}
 
     ngOnInit(): void {
     }  
@@ -37,9 +33,4 @@ export class ListComponent implements OnInit {
       if(!this.type()) return;
       this.route.navigate(['edit'], {queryParams: {animal: this.type()}})
     }
-
-    itemClicked(){
-
-    }
-  
 }

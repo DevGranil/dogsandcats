@@ -1,7 +1,7 @@
 
 <div class="list__list">
     @for(animal of list(); track animal ){
-            <div class="list__item" (click)="itemClicked()">
+            <div class="list__item">
                 <h4>{{animal.breed}}</h4>
                 @for(traits of animal.traits; track traits){
                     <div class="edit__traits">{{traits}}</div>    
