@@ -1,0 +1,19 @@
+.list{
+    &__wrapper{
+
+        height: 100vh;
+        border: 1px solid black;
+        position: relative;
+    }
+
+    &__list{
+        overflow-y: scroll;
+        height: 80%;
+        background-color: red;
+        padding: 20px;
+    }
+    &__actions{
+        position: absolute;
+        bottom: 0;
+    }
+}

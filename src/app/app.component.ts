@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ListComponent } from './core/components/list/list.component';
+import { AnimalsService, AnimalType } from './core/services/animals.service';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -9,5 +11,4 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'app';
 }

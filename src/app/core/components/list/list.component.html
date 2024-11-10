@@ -1,0 +1,14 @@
+<div class="list__wrapper">
+    <div class="list__list">
+        @for(animals of list(); track animals ){
+            @for(animal of animals | keyvalue; track animal){
+                <h4>{{animal.key}}</h4>
+                <h4>{{animal.value}}</h4>
+            }
+        }
+    </div>
+    <div class="list__actions">
+        <app-select-button (openEditor)="openEditor()"></app-select-button>
+    </div>
+</div>
+
