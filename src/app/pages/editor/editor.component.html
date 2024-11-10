@@ -3,7 +3,7 @@
     <div class="edit__subset">
         <div class="edit__list">
             @for(items of subSet; track items){
-                <div class="edit__item" (click)="selectedSub(items)" [ngClass]="{'selected': subSelected?.breed === items.breed}">
+                <div class="edit__item" (click)="sub(items)" [ngClass]="{'selected': subSelected?.breed === items.breed}">
                     <h4 class="edit__breed">{{items.breed}}</h4>
                     @for(traits of items.traits; track traits){
                         <div class="edit__traits">{{traits}}</div>    
@@ -26,7 +26,7 @@
         </div>
         <div class="edit__list">
             @for(items of superSet | searchText:filteredWord ; track items.breed){
-                <div class="edit__item" (click)="selectedSuper(items)" [ngClass]="{'selected': superSelected?.breed === items.breed}">
+                <div class="edit__item" (click)="super(items)" [ngClass]="{'selected': superSelected?.breed === items.breed}">
                     <h4 class="edit__breed">{{items.breed}}</h4>
                     @for(traits of items.traits; track traits){
                         <div class="edit__traits">{{traits}}</div>    

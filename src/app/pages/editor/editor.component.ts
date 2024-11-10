@@ -29,11 +29,11 @@ export class EditorComponent {
 
   constructor(private router: Router){}
 
-  selectedSuper(item: AnimalStruct){
+  super(item: AnimalStruct){
     this.superSelected = item
   }
 
-  selectedSub(item: AnimalStruct){
+  sub(item: AnimalStruct){
     this.subSelected = item;
   }
 
