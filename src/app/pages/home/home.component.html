@@ -1,4 +1,10 @@
 <main>
-    <app-list [list]="dogs()" [type]="animalTypes.DOG"></app-list>
-    <app-list [list]="cats()" [type]="animalTypes.CAT"></app-list>
+    <div class="list">
+        <h1>Dogs</h1>
+        <app-list [list]="dogs()" [type]="animalTypes.DOG"></app-list>
+    </div>
+    <div class="list">
+        <h1>Cats</h1>
+        <app-list [list]="cats()" [type]="animalTypes.CAT"></app-list>
+    </div>
 </main>

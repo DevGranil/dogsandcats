@@ -1,14 +1,18 @@
-<div class="list__wrapper">
-    <div class="list__list">
-        @for(animals of list(); track animals ){
-            @for(animal of animals | keyvalue; track animal){
-                <h4>{{animal.key}}</h4>
-                <h4>{{animal.value}}</h4>
-            }
-        }
-    </div>
-    <div class="list__actions">
-        <app-select-button (openEditor)="openEditor()"></app-select-button>
-    </div>
+
+<div class="list__list">
+    @for(animal of list(); track animal ){
+            <div class="list__item" (click)="itemClicked()">
+                <h4>{{animal.breed}}</h4>
+                @for(traits of animal.traits; track traits){
+                    <div class="edit__traits">{{traits}}</div>    
+                }
+            </div>
+    }
 </div>
+<div class="list__actions">
+    @if(type()){
+        <app-select-button (openEditor)="openEditor()"></app-select-button>
+    }
+</div>
+
 

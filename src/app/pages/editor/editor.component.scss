@@ -1,0 +1,38 @@
+.edit{
+    &__wrapper{
+        display: flex;
+        height: 70vh;
+        overflow-y: hidden;
+    }
+
+    &__subset,&__superset{
+        width: 100%;
+        background-color: rgb(236, 236, 236);
+        border: 1px solid black;
+        padding: 20px;
+
+        position: relative;
+    }
+
+    &__actions{
+        position: absolute;
+        bottom: 0;
+    }
+
+   &__list{
+    overflow-y: scroll;
+    height: 80%;
+   }
+
+   &__item{
+    &:hover{
+        background-color: rgba(green, 0.5);
+        cursor: pointer;
+    }
+
+    &.selected{
+        background-color: rgba(green, 0.5);
+
+    }
+   }
+}

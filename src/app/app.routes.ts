@@ -9,7 +9,7 @@ export const routes: Routes = [
     },
 
     {
-        path: ':animal/edit',
+        path: 'edit',
         component: EditorComponent
     }
 ];

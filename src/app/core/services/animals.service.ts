@@ -7,7 +7,10 @@ export enum AnimalType{
   CAT = 'cat'
 }
 
-export type AnimalStruct = Record<string, string[]>
+export interface AnimalStruct {
+  breed: string;
+  traits: string[]
+}
 
 @Injectable({
   providedIn: 'root'
@@ -28,12 +31,29 @@ export class AnimalsService {
       case AnimalType.DOG: {
         return this.dogService.getSubSet()
       };
-      // default: {
-      //   const exhaustiveCheck: never = type;
-      //   console.error(`Unhandled type ${exhaustiveCheck}`)
-      //   return 
-      // }
     }
   }
+
+
+  listSuperSet(type: AnimalType){
+    switch(type){
+      case AnimalType.CAT: {
+        return this.catsService.getSuperSet()
+      }
+      case AnimalType.DOG: {
+        return this.dogService.getSuperSet()
+      };
+    }
+  }
+
+  udpateSubSet(type: AnimalType, subSet: AnimalStruct[]){
+    switch(type){
+      case AnimalType.CAT: {
+        return this.catsService.updateSubset(subSet)
+      }
+      case AnimalType.DOG: {
+        return this.dogService.updateSubset(subSet)
+      };
+  }}
 
 }

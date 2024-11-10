@@ -1,1 +1,42 @@
-<p>editor works!</p>
+
+<div class="edit__wrapper">
+    <div class="edit__subset">
+        <div class="edit__list">
+            @for(items of subSet; track items){
+                <div class="edit__item" (click)="selectedSub(items)" [ngClass]="{'selected': superSelected?.breed === items.breed}">
+                    <h4 class="edit__breed">{{items.breed}}</h4>
+                    @for(traits of items.traits; track traits){
+                        <div class="edit__traits">{{traits}}</div>    
+                    }
+                </div>
+            }
+        </div>
+        <div class="edit__actions">
+            <button [disabled]="!subSelected" (click)="removeFromSubSet()">Remove</button>
+        </div>
+    </div>
+    <div class="edit__superset">
+        <div class="edit__list">
+            @for(items of superSet; track items){
+                <div class="edit__item" (click)="selectedSuper(items)" [ngClass]="{'selected': superSelected?.breed === items.breed}">
+                    <h4 class="edit__breed">{{items.breed}}</h4>
+                    @for(traits of items.traits; track traits){
+                        <div class="edit__traits">{{traits}}</div>    
+                    }
+                </div>
+                
+            }
+        </div>
+        <div class="edit__actions">
+            <button [disabled]="!superSelected" (click)="addToSubSet()">Add</button>
+            <button (click)="addAll()">Add All</button>
+        </div>
+    </div>
+
+</div>    
+<div>
+    <button (click)="save()">Save changes</button>
+    <button (click)="cancel()">Cancel changes</button>
+</div>
+
+
