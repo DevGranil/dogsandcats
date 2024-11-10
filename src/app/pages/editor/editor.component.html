@@ -3,7 +3,7 @@
     <div class="edit__subset">
         <div class="edit__list">
             @for(items of subSet; track items){
-                <div class="edit__item" (click)="selectedSub(items)" [ngClass]="{'selected': superSelected?.breed === items.breed}">
+                <div class="edit__item" (click)="selectedSub(items)" [ngClass]="{'selected': subSelected?.breed === items.breed}">
                     <h4 class="edit__breed">{{items.breed}}</h4>
                     @for(traits of items.traits; track traits){
                         <div class="edit__traits">{{traits}}</div>    
@@ -13,11 +13,19 @@
         </div>
         <div class="edit__actions">
             <button [disabled]="!subSelected" (click)="removeFromSubSet()">Remove</button>
+            <button (click)="removeAll()">Remove All</button>
+            <button [disabled]="!subSelected" (click)="moveUp()">Move up</button>
+            <button [disabled]="!subSelected" (click)="moveDown()">Move Down</button>
         </div>
     </div>
     <div class="edit__superset">
+        <div class="edit__filters">
+            <div>
+                <input type="text" placeholder="Search by Breed or Trait" (keyup)="searchWord(searchFilter)" #searchFilter>
+            </div>
+        </div>
         <div class="edit__list">
-            @for(items of superSet; track items){
+            @for(items of superSet | searchText:filteredWord ; track items.breed){
                 <div class="edit__item" (click)="selectedSuper(items)" [ngClass]="{'selected': superSelected?.breed === items.breed}">
                     <h4 class="edit__breed">{{items.breed}}</h4>
                     @for(traits of items.traits; track traits){
@@ -34,7 +42,7 @@
     </div>
 
 </div>    
-<div>
+<div class="edit__master-actions">
     <button (click)="save()">Save changes</button>
     <button (click)="cancel()">Cancel changes</button>
 </div>
