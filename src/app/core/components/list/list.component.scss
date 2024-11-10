@@ -11,12 +11,6 @@
         padding: 20px;
     }
 
-    &__item{
-        &:hover{
-            background-color: rgba(green, 0.5);
-            cursor: pointer;
-        }
-    }
     &__actions{
         position: absolute;
         padding: 20px;
